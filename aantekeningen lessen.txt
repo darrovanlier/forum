@@ -1,0 +1,11 @@
+https://github.com/darrovanlier/Forum-PHP-opdracht
+
+(vinkje) Create repo op github, 
+naam: Forum PHP opdracht
+Desc (zelf later)
+
+in repo updaten via command line:
+commands:
+git add.
+git commit -m "beschrijving van deze update!)!)!)"
+git push
