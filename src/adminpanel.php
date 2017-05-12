@@ -3,23 +3,17 @@ session_start();
 include('dbconn.php');
 include('includes/whenlogged.php');
 
-if(isset($_SESSION['username'])) {
-} else {
-    header('Location: index.php');
-    exit(0);
-}
-?>
 
+?>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"> 
-<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen"> 
-<script type="text/javascript" src="js/jquery-1.11.3-jquery.min.js"></script>
-<link rel="stylesheet" href="css/style.css" type="text/css"  />
-<title>welcome - <?= $_SESSION['username'] ?></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+    <script type="text/javascript" src="js/jquery-1.11.3-jquery.min.js"></script>
+    <link rel="stylesheet" href="css/style.css" type="text/css"  />
+    <title>welcome - <?= $_SESSION['username'] ?></title>
 </head>
-
 <body>
 
 <section class="container">
@@ -78,19 +72,8 @@ if(isset($_SESSION['username'])) {
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
             </nav>
-            
-        <h2 class="text-center"> Profile page / Profile information</h2>
-        <hr />
-        <h4 class=""> Current registered username: <?= $_SESSION['username'] ?></h4>
-        <h4 class=""> Current registered username: <?= $_SESSION['username'] ?></h4>
 
-
-
-
-
-    </div>
-</div>
-
+            adminpanel
 
 <script src="bootstrap/js/bootstrap.min.js"></script>
 

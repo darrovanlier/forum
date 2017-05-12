@@ -1,0 +1,19 @@
+Database name: 
+phpforum
+
+Hosted on: (localhost)127.0.0.1
+
+table 1 "users":
+SHOW CREATE TABLE users :
+
+CREATE TABLE `users` (
+ `ID` int(11) NOT NULL AUTO_INCREMENT,
+ `username` varchar(24) NOT NULL,
+ `password` varchar(255) NOT NULL,
+ `email` varchar(255) NOT NULL,
+ `user` tinyint(1) NOT NULL,
+ `admin` tinyint(1) NOT NULL,
+ `joining_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ PRIMARY KEY (`ID`),
+ UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1

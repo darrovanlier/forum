@@ -15,7 +15,6 @@ if (isset($_POST['signup'])) {
     if (!$username || !$email || !$password) {
         $signup_message = '<div class="alert alert-danger">Please fill in all fields.</div>';
     } else {
-
         $check_username = $dbh->prepare('select * from users where username = :username');
         $check_username->execute([
             ':username' => $username
@@ -27,9 +26,9 @@ if (isset($_POST['signup'])) {
         ]);
 
         if ($check_username->rowCount() > 0) {
-            $username_used = '<p class="text-danger">That username is taken</p>';
+            $username_used = '<p class="text-danger">Username is already in use.</p>';
         } elseif ($check_email->rowCount() > 0) {
-            $email_used = '<p class="text-danger">Sorry, that email is taken. Try another?</p>';
+            $email_used = '<p class="text-danger">Email is already in use</p>';
         } else {
             $createacc = $dbh->prepare('insert into users (username, email, password, user) values (:username, :email, :password, :user)');
             $createacc->execute([
@@ -38,8 +37,7 @@ if (isset($_POST['signup'])) {
                 ':password' => hash('sha512', $password),
                 ':user' => $user
             ]);
-            $signup_message = '<div class="alert alert-success" role="alert">Your account has been created, <a href="login.php">login</a>.</div>';
+            $signup_message = '<div class="alert alert-success">Your account has been created. <a href="login.php">login</a>.</div>';
         }
     }
-
 }

@@ -1,6 +1,9 @@
 <?php
 session_start();
-
+if(isset($_SESSION['username'])) {
+    header('Location: index.php');
+    exit(0);
+}
 include('signup-handler.php');
 include('dbconn.php');
 ?>
@@ -39,7 +42,8 @@ include('dbconn.php');
                 </button>
             </div>
             <br />
-            <label class="text-center">have an account ? <a href="login.php">Sign In</a></label>
+            <label class="text-center">have an account ? <a href="login.php">Sign In</a></label> <br>
+            <label> <a href="index.php">Home</a></label>
         </form>
     </div>
 </div>

@@ -1,27 +1,10 @@
 <?php
 session_start();
 include('dbconn.php');
-include('login-handler.php');
-
-
-//if(!isset($_SESSION['username'])) {
-//} elseif ($_SESSION['user'] == true) {
-//    $user = '<li><a href="#">userpanel</a></li>';
-//} else {
-//    $user = null;
-//}
-
-if(!isset($_SESSION['username'])) {
-} elseif ($_SESSION['admin'] == true) {
-    $admin = '<li><a href="#">adminpanelpanel</a></li>';
-} else {
-    $admin = null;
-}
-
+include('includes/whenlogged.php');
 
 
 ?>
-
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -31,84 +14,70 @@ if(!isset($_SESSION['username'])) {
     <link rel="stylesheet" href="css/style.css" type="text/css"  />
     <title>welcome - <?= $_SESSION['username'] ?></title>
 </head>
-
 <body>
 
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Welcome  </a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="index.php">Home</a></li>
+<section class="container">
+    <section class="row clearfix">
+        <section class="col-md-12 column">
 
-                <?php
-                if(!isset($_SESSION['username'])) {
-                    echo "<li><a href='login.php'>Login</a></li>
-                            <li><a href='signup.php'>Sign-Up</a></li>";
-                } else {
-                    echo "<li><a href=\"#\">userpanel</a></li>";
-                }
-                ?>
-                <?= $admin ?>
-            </ul>
-            <?php
-            if(!isset($_SESSION['username'])) {
-            } else {
-                echo "            
-            <ul class=\"nav navbar-nav navbar-right\">
-                <li class=\"dropdown\">
-                    <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">
-                        <span class=\"glyphicon glyphicon-user\"></span>&nbsp; Account &nbsp;<span class=\"caret\"></span></a>
-                    <ul class=\"dropdown-menu\">
-                        <li><a href=\"profile.php\"><span class=\"glyphicon glyphicon-user\"></span>&nbsp;View Profile</a></li>
-                        <li><a href=\"logout.php?logout=true\"><span class=\"glyphicon glyphicon-log-out\"></span>&nbsp;Sign Out</a></li>
-                    </ul>
-                </li>
-            </ul>";
-            }
-            ?>
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><Forum></Forum></a>
+                    </div>
 
-        </div><!--/.nav-collapse -->
-    </div>
-</nav>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="index.php"><i class="fa fa-comments"></i>Home</a></li>
 
-<div class="clearfix"></div>
 
-<div class="container-fluid" style="margin-top:50px;">
-    <div class="container">
-        <hr />
-        <div class="rechts">
-            <form method="post">
-                <div class="form-signin">
-                    <input type="text" class="form-control" name="txt_title" placeholder="Title Of Your post"/>
-                </div>
 
-                <div class="form-signin">
-                    <input type="text" class="form-control" name="txt_inhoud" placeholder="Post"/>
-                </div>  <br>
+                            <?php
+                            if(!isset($_SESSION['username'])) {
+                                echo "<li><a href=\"login.php\"><i class=\"fa fa-comments\"></i>Login</a></li>
+                            <li><a href=\"signup.php\"><i class=\"fa fa-comments\"></i>Sign-Up</a></li>";
+                            } else {
+                                echo "<li><a href=\"#\">Userpanel</a></li>";
+                            }
+                            ?>
 
-                <div class="form-group text-center">
-                    <button type="submit" class="btn btn-danger" name="#">
-                        Submit Post
-                    </button>
-                </div>
-                <br />
-            </form>
-        </div>
+                            <?= $admin ?>
+                        </ul>
 
-        <div class="links>">
+                        <?php
+                        if(!isset($_SESSION['username'])) {
+                        } else {
+                            echo "            
+                        <ul class=\"nav navbar-nav navbar-right\">
+                            <li class=\"dropdown\">
+                                <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                                    <span class=\"glyphicon glyphicon-user\"></span>&nbsp; Account &nbsp;<span class=\"caret\"></span></a>
+                                <ul class=\"dropdown-menu\"> 
+                                    <li><a href=\"profile.php\"><span class=\"glyphicon glyphicon-user\"></span>&nbsp;View Profile</a></li>
+                                    <li><a href=\"logout.php?logout=true\"><span class=\"glyphicon glyphicon-log-out\"></span>&nbsp;Sign Out</a></li>
+                                </ul>
+                            </li>
+                        </ul>";
+                        }
+                        ?>
 
-        </div>
-    </div>
-</div>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+
+
+
+
+
+test
 
 
 <script src="bootstrap/js/bootstrap.min.js"></script>

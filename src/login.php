@@ -1,6 +1,9 @@
 <?php
 session_start();
-
+if(isset($_SESSION['username'])) {
+    header('Location: index.php');
+    exit(0);
+}
 include('dbconn.php');
 include('login-handler.php');
 ?>
@@ -33,7 +36,8 @@ include('login-handler.php');
                     <i class="glyphicon glyphicon-log-in"></i> &nbsp; SIGN IN
                 </button>
             </div>
-            <label>Don't have account yet ? <a href="signup.php">Sign Up</a></label>
+            <label>Don't have account yet ? <a href="signup.php">Sign Up</a></label> <br>
+            <label><a href="index.php">Home</a></label>
         </form>
     </div>
 </div>
