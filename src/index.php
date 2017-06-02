@@ -24,7 +24,7 @@ include('app/indexhandler.php');
                             echo '<td><a href="theme.php?id='.$id.'">'.$row['title'].'</td>';
                             echo '<td>'.$row['description'].'</td>';
                             echo '<td class="col-md-2">'.$row['created_at'].'</td>';
-                            echo '<td class="col-md-2">'.$row['username'].'</td>';
+                            echo '<td class="col-md-2">'.$row['author'].'</td>';
                             echo '</tr>';
                         }
                     }

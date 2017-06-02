@@ -18,12 +18,10 @@ if (isset($_POST['signup'])) {
         $check_username->execute([
             ':username' => $username
         ]);
-
         $check_email = $dbh->prepare('select * from users where email = :email');
         $check_email->execute([
             ':email' => $email
         ]);
-
         if ($check_username->rowCount() > 0) {
             $username_used = '<p class="text-danger">Username is already in use.</p>';
         } elseif ($check_email->rowCount() > 0) {

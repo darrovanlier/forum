@@ -1,7 +1,6 @@
 <?php
 
-$fetch_themes = $dbh->prepare('SELECT topics.id, topics.title, topics.context, topics.created_at, topics.user_id, users.username FROM users INNER JOIN topics ON users.id = topics.user_id
- where theme_id = :id');
+$fetch_themes = $dbh->prepare('SELECT * FROM topics where theme_id = :id');
 $fetch_themes->execute([
     ':id' => $_GET['id']
 ]);

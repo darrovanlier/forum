@@ -25,10 +25,10 @@ include('app/themehandler.php');
                             $rows = $fetch_themes->fetchAll();
                             foreach ($rows as $row) {
                                 $id = $row['id'];
-                                echo '<td><a href="topic.php?id='.$id.'">'.$row['title'].'</td>';
-                                echo '<td>'.$row['context'].'</td>';
-                                echo '<td class="col-md-2">'.$row['created_at'].'</td>';
-                                echo '<td class="col-md-2">'.$row['username'].'</td>';
+                                echo '<td><a href="topic.php?id=' . $id . '">' . $row['title'] . '</td>';
+                                echo '<td>' . $row['context'] . '</td>';
+                                echo '<td class="col-md-2">' . $row['created_at'] . '</td>';
+                                echo '<td class="col-md-2">' . $row['author'] . '</td>';
                                 echo '</tr>';
                             }
                         }
