@@ -9,3 +9,89 @@ commands:
 git add.
 git commit -m "beschrijving van deze update!)!)!)"
 git push
+
+
+try {
+$db_statement = $db->prepare('SELECT * FROM themes');
+$db_statement->execute();'
+
+$themes = $db_statement->fetchAll();
+}catch(PDOException $error) {
+	echo $error->getMessage();
+}
+
+
+
+if (dbconn()) {
+
+}
+
+$dbquery('SELECT * FROM users WHERE 
+email = :email 
+AND 
+password = :password',[
+':email' => $email,
+':password' => sha1($password)
+]);
+
+
+$db = null
+
+function dbConnect()
+{
+	global $db;
+
+	try {
+	$db = new PDO('mysql:host=127.0.0.1;dbname=phpforum', 'root', '');
+	} catch (PDOException $error) {
+	$db = null
+	return false;
+	}
+
+
+function dbQuery($sql, $params = [])
+{
+	global $db, $db_statement;
+
+	if(db == null)
+		return false;
+
+	try {
+	$db_statement = $db->prepare(sql);
+	$db_statement->execute($params);
+	} catch(PDOException $error) {
+	return false;
+	}
+return true
+}
+
+
+function dbGetRows()
+{
+	global $db_statement'
+
+	if($db_statement)
+		return $db_statement->fetchAll();
+
+	return null;
+}
+
+function dbGetRow()
+{
+	global $db_statement'
+
+	if($db_statement)
+		return $db_statement->fetch();
+
+	return null;
+}
+
+
+
+
+<---- IN HTML PAGINAS ---->
+
+if(dbConnect()){
+if(dbQuery($sql'SELECT * FROM themes'));
+$themes = dbGetRows();
+}

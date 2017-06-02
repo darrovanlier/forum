@@ -2,6 +2,7 @@
 session_start();
 include('dbconn.php');
 include('includes/whenlogged.php');
+include('app/indexhandler.php');
 
 
 ?>
@@ -37,49 +38,76 @@ include('includes/whenlogged.php');
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li><a href="index.php"><i class="fa fa-comments"></i>Home</a></li>
-
-
-
+                            <?= $admin ?>
                             <?php
                             if(!isset($_SESSION['username'])) {
                                 echo "<li><a href=\"login.php\"><i class=\"fa fa-comments\"></i>Login</a></li>
                             <li><a href=\"signup.php\"><i class=\"fa fa-comments\"></i>Sign-Up</a></li>";
                             } else {
                                 echo "<li><a href=\"#\">Userpanel</a></li>";
+                                echo "    </ul>          
+                                            <ul class=\"nav navbar-nav navbar-right\">
+                                                <li class=\"dropdown\">
+                                                    <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                                                        <span class=\"glyphicon glyphicon-user\"></span>&nbsp; Account &nbsp;<span class=\"caret\"></span></a>
+                                                    <ul class=\"dropdown-menu\"> 
+                                                        <li><a href=\"profile.php\"><span class=\"glyphicon glyphicon-user\"></span>&nbsp;View Profile</a></li>
+                                                        <li><a href=\"logout.php?logout=true\"><span class=\"glyphicon glyphicon-log-out\"></span>&nbsp;Sign Out</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>";
                             }
                             ?>
-
-                            <?= $admin ?>
-                        </ul>
-
-                        <?php
-                        if(!isset($_SESSION['username'])) {
-                        } else {
-                            echo "            
-                        <ul class=\"nav navbar-nav navbar-right\">
-                            <li class=\"dropdown\">
-                                <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">
-                                    <span class=\"glyphicon glyphicon-user\"></span>&nbsp; Account &nbsp;<span class=\"caret\"></span></a>
-                                <ul class=\"dropdown-menu\"> 
-                                    <li><a href=\"profile.php\"><span class=\"glyphicon glyphicon-user\"></span>&nbsp;View Profile</a></li>
-                                    <li><a href=\"logout.php?logout=true\"><span class=\"glyphicon glyphicon-log-out\"></span>&nbsp;Sign Out</a></li>
-                                </ul>
-                            </li>
-                        </ul>";
-                        }
-                        ?>
 
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
             </nav>
 
 
+            <div class="container">
+                <h2 class="text-center">Themes</h2>
+                <table class="table table-striped table-bordered table-hover table-responsive">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Last Post</th>
+                        <th>description</th>
+                        <th>Created by</th>
+                        <th>Topic Count</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>john</td>
+                        <td>leeg</td>
+                        <td>leeg</td>
+                    </tr>
+                    <tr>
+                        <td>Mary</td>
+                        <td>Moe</td>
+                        <td>mary</td>
+                        <td>eeg</td>
+                        <td>eeg</td>
+                    </tr>
+                    <tr>
+                        <td>July</td>
+                        <td>Dooley</td>
+                        <td>july</td>
+                        <td>leeg</td>
+                        <td>leeg</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
 
 
 
-test
 
-
+        </section>
+    </section>
+</section>
 <script src="bootstrap/js/bootstrap.min.js"></script>
 
 </body>

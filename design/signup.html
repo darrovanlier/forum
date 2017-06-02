@@ -1,13 +1,3 @@
-<?php
-session_start();
-if(isset($_SESSION['username'])) {
-    header('Location: index.php');
-    exit(0);
-}
-include('signup-handler.php');
-include('dbconn.php');
-?>
-
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -17,35 +7,38 @@ include('dbconn.php');
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
+
 <div class="signin-form">
     <div class="container text-center">
+
         <form method="post" class="form-signin">
-            <h2 class="form-signin-heading">Sign Up Now!</h2> <hr>
-            <?= $username_used ?>
+            <h2 class="form-signin-heading">Sign Up Now!</h2><hr>
+
             <div class="form-group">
-                <input type="text" class="form-control" name="username" placeholder="Enter Username" maxlength="24"/>
+                <input type="text" class="form-control" name="username" placeholder="Enter Username" maxlength="24">
             </div>
-            <?= $email_used ?>
+
             <div class="form-group">
-                <input type="text" class="form-control" name="email" placeholder="Enter E-Mail"/>
+                <input type="text" class="form-control" name="email" placeholder="Enter E-Mail">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" name="password" placeholder="Enter Password"/>
-            </div><hr>
-            <?= $signup_message ?>
+                <input type="password" class="form-control" name="password" placeholder="Enter Password">
+            </div>
+            <div class="clearfix"></div><hr>
+
             <div class="form-group">
                 <button type="submit" class="btn btn-primary" name="signup">
                     <i class="glyphicon glyphicon-open-file"></i>&nbsp;SIGN UP
                 </button>
             </div>
-            <br>
-            <label class="text-center">have an account ? <a href="login.php">Sign In</a></label> <br>
-            <label> <a href="index.php">Home</a></label>
+
+            <label class="text-center">have an account ? <a href="login.html">Sign In</a></label> <br>
+            <label> <a href="index.html">Home</a></label>
         </form>
     </div>
 </div>
 </body>
+</html>
 
 
-                  
 

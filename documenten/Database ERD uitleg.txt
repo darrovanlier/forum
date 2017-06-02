@@ -1,0 +1,36 @@
+Users:
+
+id int(11) PK A.I unsigned NOT NULL
+username varchar(24) NOT NULL
+password varchar(255) NOT NULL  [hashed with sha1]
+email varchar(255) NOT NULL
+user boolean(1)
+admin boolean(1)
+created_at timestamp default (CURRENT_TIMESTAMP)
+
+themes:
+
+id int(11) PK A.I unsigned NOT NULL
+user_id int(11) FK unsigned
+title varchar(24) NOT NULL
+description text NOT NULL
+created_at timestamp default (CURRENT_TIMESTAMP)
+
+topics:
+
+id int(11) PK A.I unsigned NOT NULL
+user_id int(11) FK unsigned
+title varchar(24) NOT NULL
+content text NOT NULL
+created_at timestamp default (CURRENT_TIMESTAMP)
+theme_id int(11) unsigned
+
+replies:
+
+id int(11) PK A.I unsigned NOT NULL
+user_id int(11) FK unsigned
+topic_id int(11) unsigned
+content text NOT NULL
+created_at timestamp default (CURRENT_TIMESTAMP)
+
+
