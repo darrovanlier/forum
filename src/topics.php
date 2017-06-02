@@ -1,5 +1,4 @@
 <?php
-<?php
 session_start();
 include('dbconn.php');
 include('includes/whenlogged.php');
@@ -83,7 +82,7 @@ include('app/themehandler.php');
                             $rows = $fetch_topics->fetchAll();
                             foreach ($rows as $row) {
                                 $id = $row['id'];
-                                echo '<td><a href="theme.php?id='.$id.'">'.$row['title'].'</td>';
+                                echo '<td><a href="replies.php?id='.$id.'">'.$row['title'].'</td>';
                                 echo '<td>'.$row['context'].'</td>';
                                 echo '<td>'.$row['user_id'].' '.$row['created_at'].' </td>';
                                 echo '<td>Replies count</td>';

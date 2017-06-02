@@ -2,7 +2,7 @@
 session_start();
 include('dbconn.php');
 include('includes/whenlogged.php');
-include('app/themehandler.php');
+include('app/replyhandler.php');
 
 
 ?>
@@ -69,7 +69,6 @@ include('app/themehandler.php');
                 <table class="table table-striped table-bordered table-hover table-responsive">
                     <thead>
                     <tr>
-                        <th>Name</th>
                         <th>Description</th>
                         <th>Created by</th>
                         <th>Replies</th>
@@ -78,11 +77,10 @@ include('app/themehandler.php');
                     <tbody>
                     <tr>
                         <?php
-                        if ($fetch_topics->rowCount() > 0) {
-                            $rows = $fetch_topics->fetchAll();
+                        if ($fetch_replies->rowCount() > 0) {
+                            $rows = $fetch_replies->fetchAll();
                             foreach ($rows as $row) {
                                 $id = $row['id'];
-                                echo '<td><a href="replies.php?id='.$id.'">'.$row['title'].'</td>';
                                 echo '<td>'.$row['context'].'</td>';
                                 echo '<td>'.$row['user_id'].' '.$row['created_at'].' </td>';
                                 echo '<td>Replies count</td>';
