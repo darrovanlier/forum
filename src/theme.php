@@ -8,18 +8,7 @@ include('app/themehandler.php');
 
 
             <div class="container">
-                        <?php
-                        if ($fetch_title->rowCount() > 0) {
-                            $rows = $fetch_title->fetchAll();
-                            foreach ($rows as $row) {
-                                $id = $row['id'];
-                                $title = $row['title'];
-                                echo "<h2 class=\"text-center\">$title</h2>";
-                                echo '<h2 class=\"text-center\">'.$row['title'].'</h2>';
-                            }
-                        } else
-                            echo "an error occured";
-                        ?>
+                        <h2 class="text-center"> Topics for this theme</h2>
                 <table class="table table-striped table-bordered table-hover table-responsive">
                     <thead>
                     <tr>
@@ -32,14 +21,14 @@ include('app/themehandler.php');
                     <tbody>
                     <tr>
                         <?php
-                        if ($fetch_topics->rowCount() > 0) {
-                            $rows = $fetch_topics->fetchAll();
+                        if ($fetch_themes->rowCount() > 0) {
+                            $rows = $fetch_themes->fetchAll();
                             foreach ($rows as $row) {
                                 $id = $row['id'];
-                                echo '<td><a href="replies.php?id='.$id.'">'.$row['title'].'</td>';
+                                echo '<td><a href="topic.php?id='.$id.'">'.$row['title'].'</td>';
                                 echo '<td>'.$row['context'].'</td>';
-                                echo '<td>'.$row['created_at'].'</td>';
-                                echo '<td>'.$row['username'].'</td>';
+                                echo '<td class="col-md-2">'.$row['created_at'].'</td>';
+                                echo '<td class="col-md-2">'.$row['username'].'</td>';
                                 echo '</tr>';
                             }
                         }

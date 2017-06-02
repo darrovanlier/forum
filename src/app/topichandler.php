@@ -1,9 +1,5 @@
 <?php
-$fetch_topics = $dbh->prepare('select * from topics where theme_id = :id ');
-$fetch_topics->execute([
+$fetch_replies = $dbh->prepare('SELECT replies.id, replies.context, replies.created_at, replies.user_id, replies.topic_id, users.username FROM users INNER JOIN replies ON users.id = replies.user_id where topic_id = :id ');
+$fetch_replies->execute([
     ':id' => $_GET['id']
 ]);
-
-$query_count_replies= $dbh->prepare('select count(*) from themes');
-$query_count_replies->execute();
-$count_replies = $query_count_replies->fetchColumn();

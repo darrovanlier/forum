@@ -23,8 +23,8 @@ include('app/indexhandler.php');
                             $id = $row['id'];
                             echo '<td><a href="theme.php?id='.$id.'">'.$row['title'].'</td>';
                             echo '<td>'.$row['description'].'</td>';
-                            echo '<td>'.$row['created_at'].'</td>';
-                            echo '<td>'.$row['username'].'</td>';
+                            echo '<td class="col-md-2">'.$row['created_at'].'</td>';
+                            echo '<td class="col-md-2">'.$row['username'].'</td>';
                             echo '</tr>';
                         }
                     }
