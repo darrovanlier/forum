@@ -15,6 +15,7 @@ include('includes/whenlogged.php');
     <title>welcome - <?= $_SESSION['username'] ?></title>
 </head>
 <body>
+
 <section class="container">
     <section class="row clearfix">
         <section class="col-md-12 column">

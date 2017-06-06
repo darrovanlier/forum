@@ -5,6 +5,11 @@ $fetch_themes->execute([
     ':id' => $_GET['id']
 ]);
 
+$query_fetch_themes = $dbh->prepare('SELECT * FROM themes where id = :id');
+$query_fetch_themes->execute([
+    ':id' => $_GET['id']
+]);
+
 //$fetch_title = $dbh->prepare('select * from themes where theme_id = :id');
 //$fetch_title->execute([
 //    ':id' => $_GET['id']

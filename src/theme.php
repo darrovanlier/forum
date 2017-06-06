@@ -8,7 +8,13 @@ include('app/themehandler.php');
 
 
             <div class="container">
-                        <h2 class="text-center"> Topics for this theme</h2>
+                <?php
+                    if ($query_fetch_themes->rowCount() > 0) {
+                        $row = $query_fetch_themes->fetch();
+                        echo '<h2 class="text-center">'.$row['title'].'</h2>';
+                        echo '<h6 class="text-center text-muted">'.$row['description'].'</h6>';
+                        }
+                ?>
                 <table class="table table-striped table-bordered table-hover table-responsive">
                     <thead>
                     <tr>

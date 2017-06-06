@@ -35,7 +35,7 @@ include('app/topichandler.php');
                     echo '</div>';
                     echo $deletepost_msg;
                 } else {
-                    echo "<div class=\"card mt-2\"><div class=\"card-block\"><h4 class=\"card-title\">This post does not exist!</h4><a href=\"index.php\" class=\"card-link\">Return</a></div><div class='card-footer text-muted'>Oops...</div></div>";
+                    echo "<div class=\"text-center\"><h4>This post does not exist!</h4><a href=\"index.php\">Return</a></div></div>";
                 };
                 ?>
                 <?php
@@ -63,11 +63,9 @@ include('app/topichandler.php');
                     foreach ($rows as $row) {
                         echo '<div class="card mt-2 mb-2">';
                         echo '<div class="card-block">';
-                        echo '<h6 class="card-subtitle mb-2 text-muted">' . $row['author'] . '</h6>';
                         echo '<p class="card-text">' . $row['context'] . '</p>';
-                        echo '</div>';
-                        echo '<div class="card-footer text-muted">Created at ' . $row['created_at'] . '</div>';
-                        echo '</div>';
+                        echo '<h6 class="card-subtitle mb-2 text-muted">' . $row['author'] . '</h6>';
+                        echo '</div><div class="card-footer text-muted">Created at ' . $row['created_at'] . '</div><hr></div>';
                     }
                 }
                 ?>
