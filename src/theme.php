@@ -45,6 +45,26 @@ include('app/themehandler.php');
                 </table>
             </div>
 
+<?php
+if ($fetch_themes->rowCount() > 0 AND isset($_SESSION['username'])) {
+    echo '<form method="post">';
+    echo '<div class="form-group">';
+    echo '<label for="textarea">Create topic</label>';
+    echo '<input name="topic_title" class="form-control" placeholder="Title" maxlength="30"> ';
+    echo '<textarea name="topic_description" class="form-control" id="textarea" rows="2" maxlength="80" placeholder="Description"></textarea>';
+    echo $content_error;
+    echo '</div>';
+    echo $create_reply_msg;
+    echo '<button name="create_topic" type="submit" class="md-button-raised-blue">Reply</button>';
+    echo '</form>';
+    echo '</div>';
+    echo '</div>';
+    $topic_title_taken_msg;
+} else {
+    echo '<br>';
+}
+?>
+
 
 
 

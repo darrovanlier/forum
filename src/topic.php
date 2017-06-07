@@ -70,7 +70,7 @@ echo '
                     <div class="md-card-heading">
                         <p><b>'.$row['author'].'</b> <small>'.$row['created_at'].'</small></p>
                     </div>
-                    <div class="md-card-content">
+                    <div class="md-card-content ">
                         <p>'.$row['context'].'</p>
                     </div>';
                     if(isset($_SESSION['username'])) {

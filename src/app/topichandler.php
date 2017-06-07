@@ -2,9 +2,9 @@
 
 $content_error = null;
 $create_reply_msg = null;
-$remove = null;
 $deletepost_msg = null;
 $deletereply_msg = null;
+$reply_content_taken = null;
 
 $fetch_thread = $dbh->prepare('select * from topics where id = :id');
 $fetch_thread->execute([
@@ -20,20 +20,30 @@ if (isset($_POST['create_reply'])) {
 
     $author = $_SESSION['username'];
     $reply_content = htmlentities($_POST['reply_content']);
-    if (!$author) {
-        echo '<div class="alert alert-success mt-3" role="alert">You must be logged in to do is</div>';
-    } else {
-        if (!$reply_content) {
-            $content_error = '<p class="text-danger">Please enter some text before submitting!</p>';
-        } else {
-            $create_reply = $dbh->prepare('insert into replies (author, context, topic_id) values (:author, :context, :topic_id)');
-            $create_reply->execute([
-                ':author' => $author,
-                ':topic_id' => $_GET['id'],
-                ':context' => $reply_content
-            ]);
 
-            $create_reply_msg = '<div class="alert alert-success mt-3" role="alert"><a href="#"> Your reply has been posted</a></div>';
+    $check_reply_content = $dbh->prepare('select * from replies where context = :context');
+    $check_reply_content->execute([
+        ':context' => $reply_content
+    ]);
+
+    if ($check_reply_content->rowCount() > 0) {
+        $reply_content_taken = '<p class="text-danger">Topic title already exists</p>';
+    } else {
+        if (!$author) {
+            echo '<div class="alert alert-success mt-3" role="alert">You must be logged in to do is</div>';
+        } else {
+            if (!$reply_content) {
+                $content_error = '<p class="text-danger">Please enter some text before submitting!</p>';
+            } else {
+                $create_reply = $dbh->prepare('insert into replies (author, context, topic_id) values (:author, :context, :topic_id)');
+                $create_reply->execute([
+                    ':author' => $author,
+                    ':topic_id' => $_GET['id'],
+                    ':context' => $reply_content
+                ]);
+
+                $create_reply_msg = '<div class="alert alert-success mt-3" role="alert"><a href="#"> Your reply has been posted</a></div>';
+            }
         }
     }
 }
