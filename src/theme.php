@@ -37,7 +37,8 @@ include('app/themehandler.php');
                                 echo '<td class="col-md-2">' . $row['author'] . '</td>';
                                 echo '</tr>';
                             }
-                        }
+                        } else
+                            echo "<div class=\"text-center\"><h4>This theme does not exist!</h4><a href=\"index.php\">Return</a></div></div>";
                         ?>
 
                     </tbody>

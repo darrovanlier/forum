@@ -13,26 +13,6 @@ if(isset($_SESSION['username'])) {
         <hr />
         <h4 class=""> Current registered username: <?= $_SESSION['username'] ?></h4>
         <h4 class=""> Current registered username: <?= $_SESSION['username'] ?></h4>
-        <h4 class=""> Current registered username: <?= $_SESSION['username'] ?></h4>
-        <h4 class=""> Current registered username: <?= $_SESSION['username'] ?></h4>
-        <h4 class=""> Current registered username: <?= $_SESSION['username'] ?></h4>
-        <h4 class=""> Current registered username: <?= $_SESSION['username'] ?></h4>
-        <h4 class=""> Current registered username: <?= $_SESSION['username'] ?></h4>
-        <h4 class=""> Current registered username: <?= $_SESSION['username'] ?></h4>
-        <h4 class=""> Current registered username: <?= $_SESSION['username'] ?></h4>
-        <h4 class=""> Current registered username: <?= $_SESSION['username'] ?></h4>
-        <h4 class=""> Current registered username: <?= $_SESSION['username'] ?></h4>
-        <h4 class=""> Current registered username: <?= $_SESSION['username'] ?></h4>
-        <h4 class=""> Current registered username: <?= $_SESSION['username'] ?></h4>
-        <h4 class=""> Current registered username: <?= $_SESSION['username'] ?></h4>
-        <h4 class=""> Current registered username: <?= $_SESSION['username'] ?></h4>
-        <h4 class=""> Current registered username: <?= $_SESSION['username'] ?></h4>
-        <h4 class=""> Current registered username: <?= $_SESSION['username'] ?></h4>
-        <h4 class=""> Current registered username: <?= $_SESSION['username'] ?></h4>
-        <h4 class=""> Current registered username: <?= $_SESSION['username'] ?></h4>
-
-
-
 
 
 <?php

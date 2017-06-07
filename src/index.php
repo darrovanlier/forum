@@ -34,6 +34,8 @@ include('app/indexhandler.php');
                 </table>
             </div>
 
+
 <?php
 include('includes/footer.php');
 ?>
+
