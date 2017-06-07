@@ -4,7 +4,7 @@ include('app/indexhandler.php');
 
 ?>
             <div class="container">
-                <h2 class="text-center">Themes</h2>
+                <h2 class="text-center">Welcome to my forum!</h2>
                 <table class="table table-striped table-bordered table-hover table-responsive">
                     <thead>
                         <tr>

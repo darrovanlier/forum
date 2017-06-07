@@ -1,5 +1,6 @@
 <?php
 include_once('includes/navbar.php');
+include_once('app/profilehandler.php');
 
 if(isset($_SESSION['username'])) {
 } else {

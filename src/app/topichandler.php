@@ -21,9 +21,10 @@ if (isset($_POST['create_reply'])) {
     $author = $_SESSION['username'];
     $reply_content = htmlentities($_POST['reply_content']);
 
-    $check_reply_content = $dbh->prepare('select * from replies where context = :context');
+    $check_reply_content = $dbh->prepare('select * from replies where context = :context AND topic_id =:id');
     $check_reply_content->execute([
-        ':context' => $reply_content
+        ':context' => $reply_content,
+        ':id' => $_GET['id']
     ]);
 
     if ($check_reply_content->rowCount() > 0) {
@@ -65,6 +66,6 @@ if (isset($_POST['delete_reply'])) {
         ':id' => $id
     ]);
 
-    $deletereply_msg = '<div class="alert alert-success mt-3" role="alert">Your reply has been deleted!</div>';
+    $deletereply_msg = '<div class="alert alert-danger mt-3" role="alert">Your reply has been deleted! <a href="index.php">Return</a></div>';
 
 }

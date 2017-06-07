@@ -20,9 +20,10 @@ if (isset($_POST['create_topic'])) {
     $topic_description = htmlentities($_POST['topic_description']);
     $topic_title = htmlentities($_POST['topic_title']);
 
-    $check_topic_title = $dbh->prepare('select * from topics where title = :title');
+    $check_topic_title = $dbh->prepare('select * from topics where title = :title AND theme_id = :id');
     $check_topic_title->execute([
-        ':title' => $topic_title
+        ':title' => $topic_title,
+        ':id' => $_GET['id']
     ]);
 
     if ($check_topic_title->rowCount() > 0) {
@@ -47,28 +48,14 @@ if (isset($_POST['create_topic'])) {
         }
 }
 
+if (isset($_POST['delete_theme'])) {
+    $deletepost = $dbh->prepare('delete from themes where id = :id; delete from topics where theme_id = :id');
+    $deletepost->execute([
+        ':id' => $_GET['id']
+    ]);
+    $deletepost_msg = '<div class="alert alert-danger mt-3" role="alert">Your thread has been deleted!<a href="index.php">Return</a></div>';
+
+}
 
 
 
-
-
-//$fetch_title = $dbh->prepare('select * from themes where theme_id = :id');
-//$fetch_title->execute([
-//    ':id' => $_GET['id']
-//]);
-
-
-//$query_count_topics = $dbh->prepare('select count(*) from themes');
-//$query_count_topics->execute();
-//$count_topics = $query_count_topics->fetchColumn();
-//
-//function fetchThemeTitle($dbh) {
-//    $statement = $dbh->prepare('SELECT title FROM themes WHERE theme_id = :id');
-//    $statement->execute([
-//        ':id' => $_GET['id']
-//    ]);
-//
-//    $results = $statement->fetchall();
-//    echo $results['title'];
-//    echo $_GET['id'];
-//}

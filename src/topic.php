@@ -33,9 +33,9 @@ if ($fetch_thread->rowCount() > 0) {
         </div>
     </div>
 </div>';
-    echo $deletepost_msg;
+    echo $deletereply_msg;
 } else {
-    echo "<div class=\"text-center\"><h4>This post does not exist!</h4><a href=\"index.php\">Return</a></div></div>";
+    echo "<div class=\"text-center\"><h4>This reply does not exist!</h4><a href=\"index.php\">Return</a></div></div>";
 };
 ?>
 
@@ -89,44 +89,6 @@ echo '
     </div>
     ';} }
 ?>
-
-
-
-
-
-
-
-
-
-
-
-<!--                <h2 class="text-center">Replies</h2>-->
-<!--                <table class="table table-striped table-bordered table-hover table-responsive">-->
-<!--                    <thead>-->
-<!--                    <tr>-->
-<!--                        <th>Description</th>-->
-<!--                        <th>Created at</th>-->
-<!--                        <th>Created by</th>-->
-<!--                    </tr>-->
-<!--                    </thead>-->
-<!--                    <tbody>-->
-<!--                    <tr>-->
-<!--                        --><?php
-//                        if ($fetch_replies->rowCount() > 0) {
-//                            $rows = $fetch_replies->fetchAll();
-//                            foreach ($rows as $row) {
-//                                $id = $row['id'];
-//                                echo '<td>'.$row['context'].'</td>';
-//                                echo '<td class="col-md-2">'.$row['created_at'].' </td>';
-//                                echo '<td class="col-md-2">'.$row['username'].'</td>';
-//                                echo '</tr>';
-//                            }
-//                        }
-//                        ?>
-<!---->
-<!--                    </tbody>-->
-<!--                </table>-->
-</div>
 
 
 

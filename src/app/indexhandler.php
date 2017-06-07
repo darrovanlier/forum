@@ -1,8 +1,3 @@
 <?php
 $fetch_themes = $dbh->prepare('SELECT * FROM themes order by id asc');
 $fetch_themes->execute();
-
-
-$query_count_themes = $dbh->prepare('select count(*) from themes');
-$query_count_themes->execute();
-$count_themes = $query_count_themes->fetchColumn();

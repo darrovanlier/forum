@@ -5,23 +5,51 @@ include('app/themehandler.php');
 
 ?>
 
-
-
             <div class="container">
                 <?php
-                    if ($query_fetch_themes->rowCount() > 0) {
-                        $row = $query_fetch_themes->fetch();
-                        echo '<h2 class="text-center">'.$row['title'].'</h2>';
-                        echo '<h6 class="text-center text-muted">'.$row['description'].'</h6>';
+                if ($query_fetch_themes->rowCount() > 0) {
+                    $row = $query_fetch_themes->fetch();
+                    echo '
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <article class="md-card">
+                <div class="md-card-heading">
+                    <h3>'.$row['title'].'</h3>
+                </div>
+                <div class="md-card-content">
+                    <p>'.$row['description'].'</p>
+                </div>';
+                    if(isset($_SESSION['username'])) {
+                        if ($_SESSION['admin'] == true) {
+                            echo '<form method="post">';
+                            echo '<button name="delete_theme" type="submit" class="md-button-flat-red" style="align-content: center">Delete</button>';
+                            echo '</form>';
+                        } else {
+                            echo '';
                         }
-                ?>
+                    }
+                    echo '
+            </article>
+        </div>
+    </div>
+</div>';
+}
+
+?>
+
+
                 <table class="table table-striped table-bordered table-hover table-responsive">
                     <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Created at</th>
-                        <th>Created by</th>
+                        <?php
+                        if ($fetch_themes->rowCount() > 0) {
+                            echo '
+                        <th > Name</th >
+                        <th > Description</th >
+                        <th > Created at </th >
+                        <th > Created by </th >';
+                            }
+                            ?>
                     </tr>
                     </thead>
                     <tbody>
@@ -38,7 +66,7 @@ include('app/themehandler.php');
                                 echo '</tr>';
                             }
                         } else
-                            echo "<div class=\"text-center\"><h4>This theme does not exist!</h4><a href=\"index.php\">Return</a></div></div>";
+                            echo "<div class=\"text-center\"><h4>There is nothing here yet! be the first one to place a topic</h4></div></div>";
                         ?>
 
                     </tbody>
@@ -46,11 +74,11 @@ include('app/themehandler.php');
             </div>
 
 <?php
-if ($fetch_themes->rowCount() > 0 AND isset($_SESSION['username'])) {
+if (isset($_SESSION['username'])) {
     echo '<form method="post">';
     echo '<div class="form-group">';
     echo '<label for="textarea">Create topic</label>';
-    echo '<input name="topic_title" class="form-control" placeholder="Title" maxlength="30"> ';
+    echo '<input name="topic_title" class="form-control" placeholder="Title" maxlength="28"> ';
     echo '<textarea name="topic_description" class="form-control" id="textarea" rows="2" maxlength="80" placeholder="Description"></textarea>';
     echo $content_error;
     echo '</div>';
