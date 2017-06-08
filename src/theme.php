@@ -10,15 +10,15 @@ include('app/themehandler.php');
                 if ($query_fetch_themes->rowCount() > 0) {
                     $row = $query_fetch_themes->fetch();
                     echo '
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-            <article class="md-card">
-                <div class="md-card-heading">
-                    <h3>'.$row['title'].'</h3>
-                </div>
-                <div class="md-card-content">
-                    <p>'.$row['description'].'</p>
-                </div>';
+                            <div class="row">
+                                <div class="col-md-4 col-md-offset-4">
+                                    <article class="md-card">
+                                        <div class="md-card-heading">
+                                            <h3>'.$row['title'].'</h3>
+                                        </div>
+                                        <div class="md-card-content">
+                                            <p>'.$row['description'].'</p>
+                                        </div>';
                     if(isset($_SESSION['username'])) {
                         if ($_SESSION['admin'] == true) {
                             echo '<form method="post">';
@@ -74,7 +74,8 @@ include('app/themehandler.php');
             </div>
 
 <?php
-if (isset($_SESSION['username'])) {
+if (isset($_SESSION['username']) AND $query_fetch_themes->rowCount() > 0) {
+    $row = $query_fetch_themes->fetch();
     echo '<form method="post">';
     echo '<div class="form-group">';
     echo '<label for="textarea">Create topic</label>';
@@ -83,7 +84,7 @@ if (isset($_SESSION['username'])) {
     echo $content_error;
     echo '</div>';
     echo $create_reply_msg;
-    echo '<button name="create_topic" type="submit" class="md-button-raised-blue">Reply</button>';
+    echo '<button name="create_topic" type="submit" class="md-button-raised-blue">CREATE TOPIC</button>';
     echo '</form>';
     echo '</div>';
     echo '</div>';

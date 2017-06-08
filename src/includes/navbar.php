@@ -3,11 +3,14 @@ session_start();
 include('dbconn.php');
 
 $admin = null;
+$id = null;
 
 if(!isset($_SESSION['username'])) {
 } elseif ($_SESSION['admin'] == true) {
     $admin = '<li><a href="./adminpanel.php"><i class="fa fa-comments"></i> Admin Panel</a></li>';
 }
+
+
 
 ?>
 
@@ -58,6 +61,10 @@ if(!isset($_SESSION['username'])) {
                                 echo "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">";
                                 echo "<span class=\"glyphicon glyphicon-user\"></span>&nbsp; Account &nbsp;<span class=\"caret\"></span></a>";
                                 echo "<ul class=\"dropdown-menu\">";
+                                if(!isset($_SESSION['id'])){
+                                    $id = ($_SESSION['id']);
+                                    echo "<a href='profile.php?id=$id'>ProfileTest";
+                                }
                                 echo "<li><a href=\"profile.php\"><span class=\"glyphicon glyphicon-user\"></span>&nbsp;View Profile</a></li>";
                                 echo "<li><a href=\"logout.php?logout=true\"><span class=\"glyphicon glyphicon-log-out\"></span>&nbsp;Sign Out</a></li>";
                                 echo "</ul>";
@@ -65,6 +72,7 @@ if(!isset($_SESSION['username'])) {
                                 echo "</ul>";
                             }
                             ?>
+
                     </div> <!-- /.navbar-collapse -->
                 </div>
             </nav>

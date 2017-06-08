@@ -5,4 +5,9 @@
 //    ':id' => $_GET['id']
 //]);
 
+//$fetch_users= $dbh->prepare('Select * from users where id = : id');
+//$fetch_users->execute([
+//    ':id' => $_GET['id']
+//]);
+
 
