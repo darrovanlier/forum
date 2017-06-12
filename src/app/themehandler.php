@@ -42,7 +42,9 @@ if (isset($_POST['create_topic'])) {
                         ':title' => $topic_title,
                         ':context' => $topic_description
                     ]);
-                    $create_reply_msg = '<div class="alert alert-success mt-3" role="alert"><a href="#"> Your reply has been posted</a></div>';
+                    $id = $_GET['id'];
+                    header("Location: theme.php?id=$id");
+
                 }
             }
         }

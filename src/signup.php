@@ -23,14 +23,14 @@ include('dbconn.php');
             <h2 class="form-signin-heading">Sign Up Now!</h2> <hr>
             <?= $username_used ?>
             <div class="form-group">
-                <input type="text" class="form-control" name="username" placeholder="Enter Username" maxlength="24"/>
+                <input type="text" class="form-control" name="username" placeholder="Enter Username" maxlength="24" required>
             </div>
             <?= $email_used ?>
             <div class="form-group">
-                <input type="text" class="form-control" name="email" placeholder="Enter E-Mail"/>
+                <input type="text" class="form-control" name="email" placeholder="Enter E-Mail" required>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" name="password" placeholder="Enter Password"/>
+                <input type="password" class="form-control" name="password" placeholder="Enter Password" required>
             </div><hr>
             <?= $signup_message ?>
             <div class="form-group">

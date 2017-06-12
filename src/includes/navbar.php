@@ -54,17 +54,12 @@ if(!isset($_SESSION['username'])) {
                                 echo "<li><a href=\"login.php\"><i class=\"fa fa-comments\"></i>Login</a></li>";
                                 echo "<li><a href=\"signup.php\"><i class=\"fa fa-comments\"></i>Sign-Up</a></li>";
                             } else {
-                                echo "<li><a href=\"#\">Userpanel</a></li>";
                                 echo "</ul>";
                                 echo "<ul class=\"nav navbar-nav navbar-right\">";
                                 echo "<li class=\"dropdown\">";
                                 echo "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">";
                                 echo "<span class=\"glyphicon glyphicon-user\"></span>&nbsp; Account &nbsp;<span class=\"caret\"></span></a>";
                                 echo "<ul class=\"dropdown-menu\">";
-                                if(!isset($_SESSION['id'])){
-                                    $id = ($_SESSION['id']);
-                                    echo "<a href='profile.php?id=$id'>ProfileTest";
-                                }
                                 echo "<li><a href=\"profile.php\"><span class=\"glyphicon glyphicon-user\"></span>&nbsp;View Profile</a></li>";
                                 echo "<li><a href=\"logout.php?logout=true\"><span class=\"glyphicon glyphicon-log-out\"></span>&nbsp;Sign Out</a></li>";
                                 echo "</ul>";

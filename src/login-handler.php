@@ -19,9 +19,9 @@ if (isset($_POST['login'])) {
 
         if ($login_q->rowCount() > 0) {
             $row = $login_q->fetch();
+            $_SESSION['id'] = $row['id'];
             $_SESSION['username'] = $row['username'];
             $_SESSION['admin'] = $row['admin'];
-            $_SESSION['user'] = $row['user'];
             header('Location: index.php');
             exit(0);
         } else {

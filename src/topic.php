@@ -47,7 +47,6 @@ if ($fetch_thread->rowCount() > 0) {
                     echo '<textarea name="reply_content" class="form-control" id="textarea" rows="3" maxlength="1000"></textarea>';
                     echo $content_error;
                     echo '</div>';
-                    echo $create_reply_msg;
                     echo '<button name="create_reply" type="submit" class="md-button-raised-blue">Reply</button>';
                     echo '</form>';
                     echo '</div>';

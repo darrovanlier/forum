@@ -28,7 +28,7 @@ include('login-handler.php');
                 <span id="check-e"></span>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" name="password" placeholder="Enter Password">
+                <input type="password" class="form-control" name="password" placeholder="Enter Password" required>
             </div>
             <hr>
             <div class="form-group">

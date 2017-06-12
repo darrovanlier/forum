@@ -83,7 +83,6 @@ if (isset($_SESSION['username']) AND $query_fetch_themes->rowCount() > 0) {
     echo '<textarea name="topic_description" class="form-control" id="textarea" rows="2" maxlength="80" placeholder="Description"></textarea>';
     echo $content_error;
     echo '</div>';
-    echo $create_reply_msg;
     echo '<button name="create_topic" type="submit" class="md-button-raised-blue">CREATE TOPIC</button>';
     echo '</form>';
     echo '</div>';

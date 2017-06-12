@@ -43,7 +43,8 @@ if (isset($_POST['create_reply'])) {
                     ':context' => $reply_content
                 ]);
 
-                $create_reply_msg = '<div class="alert alert-success mt-3" role="alert"><a href="#"> Your reply has been posted</a></div>';
+                $id = $_GET['id'];
+                header("Location: topic.php?id=$id");
             }
         }
     }
