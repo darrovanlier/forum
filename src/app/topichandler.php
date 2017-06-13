@@ -2,8 +2,6 @@
 
 $content_error = null;
 $create_reply_msg = null;
-$deletepost_msg = null;
-$deletereply_msg = null;
 $reply_content_taken = null;
 
 $fetch_thread = $dbh->prepare('select * from topics where id = :id');
@@ -56,7 +54,8 @@ if (isset($_POST['delete_post'])) {
         ':id' => $_GET['id']
     ]);
 
-    $deletepost_msg = '<div class="alert alert-success mt-3" role="alert">Your thread has been deleted!</div>';
+    $id = $_GET['id'];
+    header("Location: topic.php?id=$id");
 }
 
 if (isset($_POST['delete_reply'])) {
@@ -66,5 +65,6 @@ if (isset($_POST['delete_reply'])) {
         ':id' => $id
     ]);
 
-    $deletereply_msg = '<div class="alert alert-danger mt-3" role="alert">Your reply has been deleted! <a href="index.php">Return</a></div>';
+    $id = $_GET['id'];
+    header("Location: topic.php?id=$id");
 }

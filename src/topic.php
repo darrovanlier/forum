@@ -33,7 +33,6 @@ if ($fetch_thread->rowCount() > 0) {
         </div>
     </div>
 </div>';
-    echo $deletereply_msg;
 } else {
     echo "<div class=\"text-center\"><h4>This reply does not exist!</h4><a href=\"index.php\">Return</a></div></div>";
 };

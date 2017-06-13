@@ -51,11 +51,12 @@ if (isset($_POST['create_topic'])) {
 }
 
 if (isset($_POST['delete_theme'])) {
-    $deletepost = $dbh->prepare('delete from themes where id = :id; delete from topics where theme_id = :id');
-    $deletepost->execute([
+    $deletetheme = $dbh->prepare('delete from themes where id = :id; delete from topics where theme_id = :id');
+    $deletetheme->execute([
         ':id' => $_GET['id']
     ]);
-    $deletepost_msg = '<div class="alert alert-danger mt-3" role="alert">Your thread has been deleted!<a href="index.php">Return</a></div>';
+    $id = $_GET['id'];
+    header("Location: theme.php?id=$id");
 
 }
 
