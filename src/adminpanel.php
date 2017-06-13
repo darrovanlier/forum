@@ -1,6 +1,6 @@
 <?php
 include_once('includes/navbar.php');
-include_once('app/adminpanel-handler.php');
+include_once('app/adminpanelhandler.php');
 ?>
 
             <h1 class="text-center">adminpanel</h1>
