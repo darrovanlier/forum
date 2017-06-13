@@ -57,7 +57,6 @@ if (isset($_POST['delete_post'])) {
     ]);
 
     $deletepost_msg = '<div class="alert alert-success mt-3" role="alert">Your thread has been deleted!</div>';
-
 }
 
 if (isset($_POST['delete_reply'])) {
@@ -68,5 +67,4 @@ if (isset($_POST['delete_reply'])) {
     ]);
 
     $deletereply_msg = '<div class="alert alert-danger mt-3" role="alert">Your reply has been deleted! <a href="index.php">Return</a></div>';
-
 }

@@ -1,37 +1,49 @@
 <?php
+$delete_user_msg = null;
+$admin_user_msg = null;
+$remove_admin_user_msg = null;
 
+$fetch_all_users= $dbh->prepare('Select * from users');
+$fetch_all_users->execute([
+]);
 
+if (isset($_POST['delete_user'])) {
+    $id = $_POST['adminpanel_user_id'];
+    $username = $_POST['adminpanel_user_name'];
+    $deleteuser = $dbh->prepare('delete from users where id = :id');
+    $deleteuser->execute([
+        ':id' => $id
+    ]);
 
+    $delete_topic_deleted_user = $dbh->prepare('delete from topics where author = :username');
+    $delete_topic_deleted_user->execute([
+        ':username' => $username
+    ]);
 
+    $delete_reply_deleted_user = $dbh->prepare('delete from replies where author = :username');
+    $delete_reply_deleted_user->execute([
+        ':username' => $username
+    ]);
 
-if (isset($_POST['signup'])) {
-    $username = htmlentities($_POST['username']);
-    $email = htmlentities($_POST['email']);
-    $password = htmlentities($_POST['password']);
-
-    if (!$username || !$email || !$password) {
-        $signup_message = '<div class="alert alert-danger">Please fill in all fields.</div>';
-    } else {
-        $check_username = $dbh->prepare('select * from users where username = :username');
-        $check_username->execute([
-            ':username' => $username
-        ]);
-        $check_email = $dbh->prepare('select * from users where email = :email');
-        $check_email->execute([
-            ':email' => $email
-        ]);
-        if ($check_username->rowCount() > 0) {
-            $username_used = '<p class="text-danger">Username is already in use.</p>';
-        } elseif ($check_email->rowCount() > 0) {
-            $email_used = '<p class="text-danger">Email is already in use</p>';
-        } else {
-            $createacc = $dbh->prepare('insert into users (username, email, password) values (:username, :email, :password)');
-            $createacc->execute([
-                ':username' => preg_replace('/\s+/', '', $username),
-                ':email' => $email,
-                ':password' => hash('sha512', $password)
-            ]);
-            $signup_message = '<div class="alert alert-success">Your account has been created. <a href="login.php">login</a>.</div>';
-        }
-    }
+    $delete_user_msg = '<div class="alert alert-danger mt-3" role="alert">User, and all his/her/appache helicopter\'s posts and replies has been deleted! <a href="adminpanel.php">refresh</a></div>';
 }
+
+if (isset($_POST['admin_user'])) {
+    $id = $_POST['adminpanel_user_id'];
+    $admin_user = $dbh->prepare('UPDATE users SET admin = 1 where id = :id');
+    $admin_user->execute([
+        ':id' => $id
+    ]);
+    $admin_user_msg = '<div class="alert alert-success mt-3" role="alert">User has been made admin! <a href="adminpanel.php">refresh</a></div>';
+}
+
+if (isset($_POST['remove_admin_user'])) {
+    $id = $_POST['adminpanel_user_id'];
+    $admin_user = $dbh->prepare('UPDATE users SET admin = 0 where id = :id');
+    $admin_user->execute([
+        ':id' => $id
+    ]);
+    $remove_admin_user_msg = '<div class="alert alert-success mt-3" role="alert">Admin has been made a user again, what an loser <a href="adminpanel.php">refresh</a></div>';
+}
+
+

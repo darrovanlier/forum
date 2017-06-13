@@ -5,6 +5,8 @@ include('app/themehandler.php');
 
 ?>
 
+
+
             <div class="container">
                 <?php
                 if ($query_fetch_themes->rowCount() > 0) {

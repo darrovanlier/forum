@@ -16,7 +16,6 @@ if ($fetch_users->rowCount() > 0) {
     echo '                       
 <p class="text-center"><b>Current registered username: </b>'.$row['username'].'</p>                              
 <p class="text-center"><b>Current registered email: </b>'.$row['email'].'</p>
-<p><b>yo hashed password boi: </b>'.$row['password'].'</p>
 ';
 }
 ?>
@@ -33,7 +32,7 @@ if ($fetch_users->rowCount() > 0) {
         <!-- new email -->
         <div class="col-xs-10 col-sm-6 col-md-6">
             <form class="profilepage" method="post" id="profilepage">
-                <h3 class="profilepage-header text-center">Update email</h3>
+                <h3 class="profilepage-header text-center">Change email</h3>
                 <div class="form-group">
                     <input type="email" class="form-control" name="new_email" placeholder="Enter New E-Mail">
                 </div>
@@ -41,7 +40,7 @@ if ($fetch_users->rowCount() > 0) {
                 <?=$new_email_used ?>
                 <div class="form-group text-center">
                     <button type="submit" name="update_email" class="btn btn-default">
-                        Update Email!
+                        Change Email!
                     </button>
                 <?=$email_change_message ?>
                 </div>
@@ -51,14 +50,14 @@ if ($fetch_users->rowCount() > 0) {
         <!-- new password -->
         <div class="col-xs-10 col-sm-6 col-md-6">
             <form class="profilepage" method="post" id="profilepage">
-                <h3 class="profilepage-header text-center">Update password</h3>
+                <h3 class="profilepage-header text-center">Change password</h3>
                 <div class="form-group">
                     <input type="password" class="form-control" name="new_password" placeholder="Enter New Password">
                 </div>
                 <?=$empty_password_message ?>
                 <div class="form-group text-center">
                     <button type="submit" name="update_password" class="btn btn-default">
-                        Update Password!
+                        Change Password!
                     </button>
                     <?=$password_change_message ?>
                 </div>
