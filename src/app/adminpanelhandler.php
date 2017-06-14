@@ -2,6 +2,8 @@
 $delete_user_msg = null;
 $admin_user_msg = null;
 $remove_admin_user_msg = null;
+$check_theme_title_taken = null;
+$empty_field_theme_error = null;
 
 $fetch_all_users= $dbh->prepare('Select * from users');
 $fetch_all_users->execute([
@@ -47,3 +49,32 @@ if (isset($_POST['remove_admin_user'])) {
 }
 
 
+if (isset($_POST['make_new_theme'])) {
+    $author = $_SESSION['username'];
+    $theme_title = htmlentities($_POST['new_theme_title']);
+    $theme_description = htmlentities($_POST['new_theme_description']);
+
+
+    $check_theme_title = $dbh->prepare('select * from themes where title = :title');
+    $check_theme_title->execute([
+        ':title' => $theme_title,
+    ]);
+
+    if ($check_theme_title->rowCount() > 0) {
+        $check_theme_title_taken = '<p class="text-danger">Theme title already exists</p>';
+    }   else {
+            if (!$theme_title || !$theme_description) {
+                $empty_field_theme_error = '<p class="text-danger">Please enter some text before submitting!</p>';
+            } else {
+                $create_new_theme = $dbh->prepare('insert into themes (author, description, title) values (:author, :description, :title)');
+                $create_new_theme->execute([
+                    ':author' => $author,
+                    ':description' => $theme_description,
+                    ':title' => $theme_title
+
+                ]);
+                header("Location: index.php");
+
+            }
+        }
+}

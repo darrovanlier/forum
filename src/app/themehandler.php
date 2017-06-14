@@ -29,34 +29,33 @@ if (isset($_POST['create_topic'])) {
     if ($check_topic_title->rowCount() > 0) {
         $topic_title_taken_msg = '<p class="text-danger">Topic title already exists</p>';
     }   else {
-            if (!$author) {
-                echo '<div class="alert alert-success mt-3" role="alert">You must be logged in to do is</div>';
+        if (!$author) {
+            echo '<div class="alert alert-success mt-3" role="alert">You must be logged in to do is</div>';
+        } else {
+            if (!$topic_description) {
+                $content_error = '<p class="text-danger">Please enter some text before submitting!</p>';
             } else {
-                if (!$topic_description) {
-                    $content_error = '<p class="text-danger">Please enter some text before submitting!</p>';
-                } else {
-                    $create_reply = $dbh->prepare('insert into topics (author, context, theme_id, title) values (:author, :context, :theme_id, :title)');
-                    $create_reply->execute([
-                        ':author' => $author,
-                        ':theme_id' => $_GET['id'],
-                        ':title' => $topic_title,
-                        ':context' => $topic_description
-                    ]);
-                    $id = $_GET['id'];
-                    header("Location: theme.php?id=$id");
+                $create_topic = $dbh->prepare('insert into topics (author, context, theme_id, title) values (:author, :context, :theme_id, :title)');
+                $create_topic->execute([
+                    ':author' => $author,
+                    ':theme_id' => $_GET['id'],
+                    ':title' => $topic_title,
+                    ':context' => $topic_description
+                ]);
+                $id = $_GET['id'];
+                header("Location: theme.php?id=$id");
 
-                }
             }
         }
+    }
 }
 
 if (isset($_POST['delete_theme'])) {
-    $deletetheme = $dbh->prepare('delete from themes where id = :id; delete from topics where theme_id = :id');
-    $deletetheme->execute([
+    $delete_theme = $dbh->prepare('delete from themes where id = :id; delete from topics where theme_id = :id');
+    $delete_theme->execute([
         ':id' => $_GET['id']
     ]);
-    $id = $_GET['id'];
-    header("Location: theme.php?id=$id");
+    header("Location: index.php");
 
 }
 
