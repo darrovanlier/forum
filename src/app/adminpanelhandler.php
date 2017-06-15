@@ -1,4 +1,4 @@
-<?php
+    <?php
 $delete_user_msg = null;
 $admin_user_msg = null;
 $remove_admin_user_msg = null;

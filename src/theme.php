@@ -5,8 +5,6 @@ include('app/themehandler.php');
 
 ?>
 
-
-
             <div class="container">
                 <?php
                 if ($query_fetch_themes->rowCount() > 0) {
@@ -38,7 +36,6 @@ include('app/themehandler.php');
 }
 
 ?>
-
 
                 <table class="table table-striped table-bordered table-hover table-responsive">
                     <thead>

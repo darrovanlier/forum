@@ -26,6 +26,7 @@ include('dbconn.php');
                 <input type="text" class="form-control" name="username" placeholder="Enter Username" maxlength="24" required>
             </div>
             <?= $email_used ?>
+            <?= $email_not_valid_msg ?>
             <div class="form-group">
                 <input type="text" class="form-control" name="email" placeholder="Enter E-Mail" required>
             </div>

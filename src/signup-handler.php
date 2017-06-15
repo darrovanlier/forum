@@ -5,11 +5,12 @@ include('dbconn.php');
 $signup_message = null;
 $username_used = null;
 $email_used = null;
+$email_not_valid_msg = null;
 
 if (isset($_POST['signup'])) {
-    $username = htmlentities($_POST['username']);
-    $email = htmlentities($_POST['email']);
-    $password = htmlentities($_POST['password']);
+    $username = htmlentities(str_replace(' ', '', ($_POST['username'])));
+    $email = htmlentities(str_replace(' ', '', ($_POST['email'])));
+    $password = htmlentities(str_replace(' ', '', ($_POST['password'])));
 
     if (!$username || !$email || !$password) {
         $signup_message = '<div class="alert alert-danger">Please fill in all fields.</div>';
@@ -26,6 +27,8 @@ if (isset($_POST['signup'])) {
             $username_used = '<p class="text-danger">Username is already in use.</p>';
         } elseif ($check_email->rowCount() > 0) {
             $email_used = '<p class="text-danger">Email is already in use</p>';
+        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $email_not_valid_msg = '<p class="text-danger">Email is not valid</p>';
         } else {
             $createacc = $dbh->prepare('insert into users (username, email, password) values (:username, :email, :password)');
             $createacc->execute([
@@ -37,3 +40,4 @@ if (isset($_POST['signup'])) {
         }
     }
 }
+
