@@ -10,6 +10,10 @@ include('app/indexhandler.php');
 <!--        <div class="left col-xs-10 col-sm-6 col-md-4">-->
 <!--            left-->
 <!--        </div>-->
+
+
+
+
 <div class="container">
     <div class="panel panel-default">
         <div class="panel-heading text-center"><h3>Welcome to my forum!</h3></div>

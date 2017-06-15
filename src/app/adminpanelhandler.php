@@ -1,4 +1,4 @@
-    <?php
+<?php
 $delete_user_msg = null;
 $admin_user_msg = null;
 $remove_admin_user_msg = null;
@@ -6,8 +6,7 @@ $check_theme_title_taken = null;
 $empty_field_theme_error = null;
 
 $fetch_all_users= $dbh->prepare('Select * from users');
-$fetch_all_users->execute([
-]);
+$fetch_all_users->execute();
 
 if (isset($_POST['delete_user'])) {
     $id = $_POST['adminpanel_user_id'];
@@ -71,10 +70,8 @@ if (isset($_POST['make_new_theme'])) {
                     ':author' => $author,
                     ':description' => $theme_description,
                     ':title' => $theme_title
-
                 ]);
                 header("Location: index.php");
-
             }
         }
 }

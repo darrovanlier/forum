@@ -37,8 +37,7 @@ password = :password',[
 
 $db = null
 
-function dbConnect()
-{
+function dbConnect() {
 	global $db;
 
 	try {

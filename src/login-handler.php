@@ -21,7 +21,7 @@ if (isset($_POST['login'])) {
             $row = $login_q->fetch();
             $_SESSION['username'] = $row['username'];
             $_SESSION['admin'] = $row['admin'];
-            $_SESSION['user'] = $row['user'];
+            $_SESSION['user_id'] = $row['id'];
             header('Location: index.php');
             exit(0);
         } else {
