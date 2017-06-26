@@ -28,24 +28,24 @@ include('app/indexhandler.php');
                     </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <div class="container">
-                        <div class="row">
                             <?php
                             if ($fetch_themes->rowCount() > 0) {
                                 $rows = $fetch_themes->fetchAll();
                                 foreach ($rows as $row) {
                                     $id = $row['id'];
-                                    echo '<td class="col-xs-4 col-sm-6 col-md-2"><a href="theme.php?id='.$id.'">'.$row['title'].'</td>';
+                                    echo '<tr>';
+                                    echo '<div class="container">';
+                                    echo '<div class="row">';
+                                    echo '<td class="col-xs-4 col-sm-6 col-md-2"><a href="theme.php?id='.$id.'">'.$row['title'].'</a></td>';
                                     echo '<td class="col-xs-8 col-sm-6 col-md-6">'.$row['description'].'</td>';
                                     echo '<td class="col-xs-6 col-sm-6 col-md-2">'.$row['created_at'].'</td>';
                                     echo '<td class="col-xs-6 col-sm-6 col-md-2">'.$row['author'].'</td>';
                                     echo '</tr>';
+                                    echo '</div>';
+                                    echo '</div>';
                                 }
                             }
                             ?>
-                        </div>
-                    </div>
                 </tbody>
             </table>
         </div>

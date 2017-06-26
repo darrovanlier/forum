@@ -1,4 +1,6 @@
 <?php
+include ('helpers/helper.php');
+
 $delete_user_msg = null;
 $admin_user_msg = null;
 $remove_admin_user_msg = null;
@@ -71,7 +73,8 @@ if (isset($_POST['make_new_theme'])) {
                     ':description' => $theme_description,
                     ':title' => $theme_title
                 ]);
-                header("Location: index.php");
+                header('Location: '. url("forum/src/index.php"));
+                exit(0);
             }
         }
 }

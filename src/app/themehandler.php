@@ -1,4 +1,7 @@
 <?php
+include('helpers/helper.php');
+
+
 $create_reply = null;
 $create_reply_msg = null;
 $content_error = null;
@@ -43,7 +46,8 @@ if (isset($_POST['create_topic'])) {
                     ':context' => $topic_description
                 ]);
                 $id = $_GET['id'];
-                header("Location: theme.php?id=$id");
+                header('Location: '. url("forum/src/theme.php?id=$id"));
+                exit(0);
 
             }
         }
@@ -55,9 +59,8 @@ if (isset($_POST['delete_theme'])) {
     $delete_theme->execute([
         ':id' => $_GET['id']
     ]);
-    header("Location: index.php");
-
+    header('Location: '. url("forum/src/index.php"));
+    exit(0);
 }
-
 
 

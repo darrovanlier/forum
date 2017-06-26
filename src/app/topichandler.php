@@ -1,4 +1,5 @@
 <?php
+include('helpers/helper.php');
 
 $content_error = null;
 $create_reply_msg = null;
@@ -40,9 +41,9 @@ if (isset($_POST['create_reply'])) {
                     ':topic_id' => $_GET['id'],
                     ':context' => $reply_content
                 ]);
-
                 $id = $_GET['id'];
-                header("Location: topic.php?id=$id");
+                header('Location: '. url("forum/src/topic.php?id=$id"));
+                exit(0);
             }
         }
     }
@@ -55,7 +56,8 @@ if (isset($_POST['delete_post'])) {
     ]);
 
     $id = $_GET['id'];
-    header("Location: topic.php?id=$id");
+    header('Location: '. url("forum/src/topic.php?id=$id"));
+    exit(0);
 }
 
 if (isset($_POST['delete_reply'])) {
@@ -66,5 +68,6 @@ if (isset($_POST['delete_reply'])) {
     ]);
 
     $id = $_GET['id'];
-    header("Location: topic.php?id=$id");
+    header('Location: '. url("forum/src/topic.php?id=$id"));
+    exit(0);
 }

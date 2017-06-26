@@ -1,6 +1,7 @@
 <?php
 
 include('dbconn.php');
+include('helpers/helper.php');
 
 $login_message = null;
 
@@ -22,7 +23,7 @@ if (isset($_POST['login'])) {
             $_SESSION['username'] = $row['username'];
             $_SESSION['admin'] = $row['admin'];
             $_SESSION['user_id'] = $row['id'];
-            header('Location: index.php');
+            header('Location: '. url("forum/src/index.php"));
             exit(0);
         } else {
             $login_message = '<div class="alert alert-danger">Wrong username or password.</div>';

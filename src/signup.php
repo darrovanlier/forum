@@ -4,8 +4,8 @@ if(isset($_SESSION['username'])) {
     header('Location: index.php');
     exit(0);
 }
-include('signup-handler.php');
 include('dbconn.php');
+include('app/signup-handler.php');
 ?>
 
 <html>
